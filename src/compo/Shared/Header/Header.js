@@ -24,7 +24,7 @@ const useStyles = makeStyles({
         boxShadow: 'rgba(17, 17, 26, 0.1) 0px 1px 0px !important'
     },
     menu: {
-        color: '#787878 !important',
+        color: '#000 !important',
         fontSize: '17px !important',
         transition: '0.3s !important',
         '&:hover': {

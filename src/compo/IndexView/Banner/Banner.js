@@ -5,7 +5,7 @@ import bannerBG from '../../../images/banner/banner2.jpg';
 
 
 // Custom Style
-const useStyles = makeStyles({
+export const useStyles = makeStyles({
     root: {
         backgroundImage: `url(${bannerBG})`,
         minHeight: '100vh',
