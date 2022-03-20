@@ -134,7 +134,7 @@ const Header = () => {
                         >
                             <Button className={classes.menu}>Home</Button>
                         </NavLink>
-                        <NavLink to="/Doctors"
+                        <NavLink to="/doctors"
                             className={(navInfo) => ((navInfo.isActive ? classes.activePage : ''))}
                         >
                             <Button className={classes.menu}>Doctors</Button>
