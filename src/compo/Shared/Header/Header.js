@@ -23,11 +23,11 @@ const useStyles = makeStyles({
         padding: '10px'
     },
     menu: {
-        color: '#75787A',
+        color: '#787878 !important',
         fontSize: '17px !important',
         transition: '0.3s !important',
         '&:hover': {
-            background: 'transparent',
+            background: 'transparent !important',
             color: '#0186D5 !important',
         }
     },
