@@ -20,7 +20,8 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 const useStyles = makeStyles({
     root: {
         background: '#fff !important',
-        padding: '10px'
+        padding: '10px',
+        boxShadow: 'rgba(17, 17, 26, 0.1) 0px 1px 0px !important'
     },
     menu: {
         color: '#787878 !important',
@@ -62,7 +63,6 @@ const Header = () => {
         <AppBar
             component="div"
             position="sticky"
-            elevation={1}
             className={classes.root}>
             <Container maxWidth="lg">
                 <Toolbar disableGutters>
