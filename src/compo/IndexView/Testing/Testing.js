@@ -14,9 +14,9 @@ const Testing = () => {
                         variant="h4"
                         sx={{ fontSize: '35px', fontWeight: 700 }}
                     >
-                        Why Choose Us?
+                        Why We The Best
                     </Typography>
-                    <Box sx={{ mt: 1, display: 'flex', mx: 'auto', height: '2px', width: '80px', background: '#FE824C' }}></Box>
+                    <Box sx={{ mt: 1, display: 'flex', mx: 'auto', height: '1.5px', width: '80px', background: '#FE824C' }}></Box>
                 </Box>
                 <Grid container spacing={6}>
                     {/* Operation Theater */}
