@@ -14,14 +14,13 @@ import Login from './pages/Login/Login/Login';
 import AuthProvider from './hooks/context/AuthProvider/AuthProvider';
 import Register from './pages/Login/Register/Register';
 import PrivateRoute from './pages/Login/PrivateRoute/PrivateRoute';
-import DashboardHome from './pages/Admin/Dashboard/DashboardHome/DashboardHome';
 import Dashboard from './pages/Admin/Dashboard/Dashboard/Dashboard';
-import ManageAppointment from './pages/Admin/ManageAppointment/ManageAppointment';
 import ManageReviews from './pages/Admin/ManageReviews/ManageReviews';
 import ManageDiscount from './pages/Admin/ManageDiscount/ManageDiscount';
 import MakeAdmin from './pages/Admin/MakeAdmin/MakeAdmin';
 import ManageDoctors from './pages/Admin/ManageDoctors/ManageDoctors/ManageDoctors';
 import UpdateDoctor from './pages/Admin/ManageDoctors/UpdateDoctor/UpdateDoctor';
+import ManageAppointments from './pages/Admin/Dashboard/DashboardHome/ManageAppointments/ManageAppointments';
 
 function App() {
   return (
@@ -39,10 +38,9 @@ function App() {
             <Route path="/register" element={<Register />} />
             {/* Dashboard */}
             <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>}>
-              <Route path="/dashboard" element={<DashboardHome />} />
+              <Route path="/dashboard" element={<ManageAppointments />} />
               <Route path="/dashboard/add-doctors" element={<AddDoctors />} />
               <Route path="/dashboard/make-admin" element={<MakeAdmin />} />
-              <Route path="/dashboard/manage-appointment" element={<ManageAppointment />} />
               <Route path="/dashboard/manage-doctors" element={<ManageDoctors />} />
               <Route path="/dashboard/update-doctor/:id" element={<UpdateDoctor />} />
               <Route path="/dashboard/manage-reviews" element={<ManageReviews />} />
