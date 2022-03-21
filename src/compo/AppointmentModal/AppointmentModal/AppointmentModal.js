@@ -36,7 +36,7 @@ const useStyles3 = makeStyles({
     }
 })
 
-export default function AppointmentModal({ setIsAppointment, doctor, open, handleClose }) {
+export default function AppointmentModal({ setIsAppointment, doctor, open, handleClose, total }) {
     const { register, handleSubmit } = useForm();
     // Date and Time
     const [value, setValue] = React.useState(new Date());
@@ -52,7 +52,6 @@ export default function AppointmentModal({ setIsAppointment, doctor, open, handl
             price: doctor.price,
             status: 'Pending'
         };
-        console.log(appointment)
 
         // send data to server
         fetch('http://localhost:5000/appointments', {
@@ -137,7 +136,7 @@ export default function AppointmentModal({ setIsAppointment, doctor, open, handl
                             {...register("date")}
                         />
                         {/* Default Price */}
-                        <Box sx={{ display: 'flex', alignItems: 'center', borderBottom: '1px solid #C5C5C5', py: 1, mt: 1 }}>
+                        {!total ? <Box sx={{ display: 'flex', alignItems: 'center', borderBottom: '1px solid #C5C5C5', py: 1, mt: 1 }}>
                             <Box sx={{ width: '150px' }}>
                                 <Typography
                                     variant="h6"
@@ -153,26 +152,24 @@ export default function AppointmentModal({ setIsAppointment, doctor, open, handl
                                 {doctor.price}
                             </Typography>
                         </Box>
-
-
-                        {/* {doctor.price >= 25000 && <Box>
-                            <Box sx={{ display: 'flex', alignItems: 'center', borderBottom: '1px solid #C5C5C5', py: 1 }}>
+                            :
+                            <Box sx={{ display: 'flex', alignItems: 'center', borderBottom: '1px solid #C5C5C5', py: 1, mt: 1 }}>
                                 <Box sx={{ width: '150px' }}>
                                     <Typography
                                         variant="h6"
                                         sx={{ fontSize: '16px', color: '#222222', fontWeight: 700, mr: 5 }}
                                     >
-                                        Discount Fee
+                                        Fees
                                     </Typography>
                                 </Box>
                                 <Typography
                                     variant="body1"
                                     sx={{ fontSize: '16px', color: '#565656', fontWeight: 500 }}
                                 >
-                                    20%
+                                    {total}
                                 </Typography>
                             </Box>
-                        </Box>} */}
+                        }
                         <Button
                             type="submit"
                             sx={{ px: 4, py: 1, mt: 3 }}

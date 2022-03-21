@@ -64,10 +64,6 @@ function Dashboard(props) {
                 <Button className={classes.menu}>Manage Reviews</Button>
             </NavLink>
             <Divider />
-            <NavLink to="/dashboard/manage-discount">
-                <Button className={classes.menu}>Manage Discount</Button>
-            </NavLink>
-            <Divider />
             <NavLink to="/">
                 <Button className={classes.menu}>Back to Home</Button>
             </NavLink>

@@ -8,7 +8,7 @@ const UpdateDoctor = () => {
     const { id } = useParams();
     const [doctor, setDoctor] = useState({});
     // Destructuring
-    const { name, title, price, image, description, experience, speciality, degrees, workDays, } = doctor;
+    const { name, title, price, image, description, experience, speciality, degrees, workDays, discount } = doctor;
 
     // Load Doctor
     useEffect(() => {
@@ -117,6 +117,19 @@ const UpdateDoctor = () => {
                         sx={{ width: { xs: 1, md: '80%' }, mb: 2 }}
                         className={classes2.textFiled}
                         required
+                        label="Discount"
+                        name="discount"
+                        variant="outlined"
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
+                        value={discount || ''}
+                        onChange={handleOnChange}
+                    />
+                    <TextField
+                        sx={{ width: { xs: 1, md: '80%' }, mb: 2 }}
+                        className={classes2.textFiled}
+                        required
                         label="Speciality"
                         name="speciality"
                         variant="outlined"
@@ -187,7 +200,7 @@ const UpdateDoctor = () => {
                         variant="contained"
                         type="submit"
                     >
-                        Add Doctors</Button>
+                        Update Details</Button>
                 </form>
             </Box>
 

@@ -9,18 +9,25 @@ import { useStyles } from '../../Banner/Banner';
 
 const Profile = () => {
     const [isAppointment, setIsAppointment] = useState(false);
+    const [total, setTotal] = useState('');
     const { id } = useParams();
     const [doctor, setDoctor] = useState({});
     // Destructuring
-    const { name, title, price, image, description, experience, speciality, degrees, workDays, } = doctor;
+    const { name, title, price, image, experience, speciality, degrees, workDays, discount } = doctor;
 
     // Load Doctor
     useEffect(() => {
         fetch(`http://localhost:5000/doctors/${id}`)
             .then(res => res.json())
-            .then(data => setDoctor(data))
+            .then(data => {
+                setDoctor(data)
+                if (data.price >= 25000) {
+                    const discountAmount = parseInt(data.price) * (discount / 100);
+                    const totalAmount = data.price - discountAmount;
+                    setTotal(totalAmount)
+                }
+            })
     }, []);
-
 
     // Modal
     const [open, setOpen] = React.useState(false);
@@ -36,7 +43,6 @@ const Profile = () => {
             text: `You have successfully Set Your Appointment!`
         });
     };
-
 
     const classes = useStyles();
 
@@ -164,7 +170,7 @@ const Profile = () => {
                                         variant="body1"
                                         sx={{ fontSize: '16px', color: '#565656', fontWeight: 500 }}
                                     >
-                                        ৳ {price}
+                                        ৳ {total} Got {discount}% Discount
                                     </Typography>
                                 </Box>}
                                 {/* Create Appointment */}
@@ -183,6 +189,7 @@ const Profile = () => {
                 <AppointmentModal
                     setIsAppointment={setIsAppointment}
                     doctor={doctor}
+                    total={total}
                     open={open}
                     handleClose={handleClose}
                 />

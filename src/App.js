@@ -16,7 +16,6 @@ import Register from './pages/Login/Register/Register';
 import PrivateRoute from './pages/Login/PrivateRoute/PrivateRoute';
 import Dashboard from './pages/Admin/Dashboard/Dashboard/Dashboard';
 import ManageReviews from './pages/Admin/ManageReviews/ManageReviews';
-import ManageDiscount from './pages/Admin/ManageDiscount/ManageDiscount';
 import MakeAdmin from './pages/Admin/MakeAdmin/MakeAdmin';
 import ManageDoctors from './pages/Admin/ManageDoctors/ManageDoctors/ManageDoctors';
 import UpdateDoctor from './pages/Admin/ManageDoctors/UpdateDoctor/UpdateDoctor';
@@ -44,7 +43,6 @@ function App() {
               <Route path="/dashboard/manage-doctors" element={<ManageDoctors />} />
               <Route path="/dashboard/update-doctor/:id" element={<UpdateDoctor />} />
               <Route path="/dashboard/manage-reviews" element={<ManageReviews />} />
-              <Route path="/dashboard/manage-discount" element={<ManageDiscount />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>

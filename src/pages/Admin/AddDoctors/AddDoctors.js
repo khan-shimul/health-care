@@ -32,6 +32,7 @@ const AddDoctors = () => {
 
     // add Doctors api
     const onSubmit = data => {
+        data.discount = 20;
         axios.post('http://localhost:5000/doctors', { data })
             .then(result => {
                 if (result.data.insertedId) {
