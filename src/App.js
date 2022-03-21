@@ -9,6 +9,7 @@ import NotFound from './pages/NotFound/NotFound';
 import Doctors from './pages/Doctors/Doctors';
 import Contact from './pages/Contact/Contact';
 import About from './pages/About/About';
+import AddDoctors from './pages/Admin/AddDoctors/AddDoctors';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/doctors" element={<Doctors />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/add-doctors" element={<AddDoctors />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
