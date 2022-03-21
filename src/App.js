@@ -6,10 +6,10 @@ import {
 } from "react-router-dom";
 import Home from './pages/Home/Home';
 import NotFound from './pages/NotFound/NotFound';
-import Doctors from './pages/Doctors/Doctors';
 import Contact from './pages/Contact/Contact';
 import About from './pages/About/About';
 import AddDoctors from './pages/Admin/AddDoctors/AddDoctors';
+import Profile from './compo/IndexView/Doctors/Profile/Profile';
 
 function App() {
   return (
@@ -18,7 +18,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/doctors" element={<Doctors />} />
+          {/* <Route path="/doctors" element={<Doctors />} /> */}
+          <Route path="/doctor-profile/:id" element={<Profile />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/add-doctors" element={<AddDoctors />} />

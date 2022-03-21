@@ -32,7 +32,7 @@ const AddDoctors = () => {
 
     // add Doctors api
     const onSubmit = data => {
-        axios.post('http://localhost:3000/doctors', { data })
+        axios.post('http://localhost:5000/doctors', { data })
             .then(result => {
                 if (result.data.insertedId) {
                     alert('added successfully')
@@ -67,6 +67,22 @@ const AddDoctors = () => {
                                         label="Title"
                                         variant="outlined"
                                         {...register("title")}
+                                    />
+                                    <TextField
+                                        sx={{ width: { xs: 1, md: '80%' }, mb: 2 }}
+                                        className={classes2.textFiled}
+                                        required
+                                        label="Doctor Image URL"
+                                        variant="outlined"
+                                        {...register("image")}
+                                    />
+                                    <TextField
+                                        sx={{ width: { xs: 1, md: '80%' }, mb: 2 }}
+                                        className={classes2.textFiled}
+                                        required
+                                        label="Appointment Cost"
+                                        variant="outlined"
+                                        {...register("price")}
                                     />
                                     <TextField
                                         sx={{ width: { xs: 1, md: '80%' }, mb: 2 }}
