@@ -50,7 +50,7 @@ const AddDoctors = () => {
                         <Grid item xs={12} sm={12} md={12}>
                             <Box>
                                 <Typography variant="h5" sx={{ my: 3, fontWeight: 600, fontFamily: 'Lato' }}>Please Add Your Doctors Here!!</Typography>
-                                {/* Login Form */}
+                                {/* Add Doctor Form */}
                                 <form onSubmit={handleSubmit(onSubmit)}>
                                     <TextField
                                         sx={{ width: { xs: 1, md: '80%' }, mb: 2 }}
@@ -123,6 +123,8 @@ const AddDoctors = () => {
                                         required
                                         label="Description"
                                         variant="outlined"
+                                        multiline
+                                        maxRows={4}
                                         {...register("description")}
                                     />
                                     <Button
