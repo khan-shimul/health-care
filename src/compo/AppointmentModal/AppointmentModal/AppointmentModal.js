@@ -36,7 +36,7 @@ const useStyles3 = makeStyles({
     }
 })
 
-export default function AppointmentModal({ doctor, open, handleClose }) {
+export default function AppointmentModal({ setIsAppointment, doctor, open, handleClose }) {
     const { register, handleSubmit } = useForm();
     // Date and Time
     const [value, setValue] = React.useState(new Date());
@@ -45,14 +45,35 @@ export default function AppointmentModal({ doctor, open, handleClose }) {
     // Handle Appointment Form
     const onSubmit = data => {
         data.date = value;
-        console.log(data)
+        const appointment = {
+            ...data,
+            date: data.date.toLocaleDateString()
+        };
+
+        // send data to server
+        fetch('http://localhost:5000/appointments', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(appointment)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    setIsAppointment(true)
+                    handleClose();
+                }
+            })
+
     };
 
     // handle Discount
-    if (doctor.price >= 500) {
-        const discount = (20 / doctor.price) * 100;
-        console.log(discount);
-    }
+    // if (doctor.price >= 500) {
+    //     const discount = doctor.price * (20 / 100);
+    //     const total = doctor.price - discount;
+    //     doctor.price = total;
+    // }
 
     const classes = useStyles()
     const classes3 = useStyles3();

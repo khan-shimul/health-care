@@ -1,12 +1,14 @@
 import { Box, Button, Container, Grid, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import AppointmentModal from '../../../AppointmentModal/AppointmentModal/AppointmentModal';
 import Footer from '../../../Shared/Footer/Footer';
 import Header from '../../../Shared/Header/Header';
 import { useStyles } from '../../Banner/Banner';
 
 const Profile = () => {
+    const [isAppointment, setIsAppointment] = useState(false);
     const { id } = useParams();
     const [doctor, setDoctor] = useState({});
     // Destructuring
@@ -24,6 +26,17 @@ const Profile = () => {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+
+
+    // if successfully set a appointment
+    if (isAppointment) {
+        Swal.fire({
+            icon: 'success',
+            title: 'Congrats',
+            text: `You have successfully Set Your Appointment!`
+        });
+    };
+
 
     const classes = useStyles();
 
@@ -168,6 +181,7 @@ const Profile = () => {
                 </Box>
                 {/* Modal */}
                 <AppointmentModal
+                    setIsAppointment={setIsAppointment}
                     doctor={doctor}
                     open={open}
                     handleClose={handleClose}
