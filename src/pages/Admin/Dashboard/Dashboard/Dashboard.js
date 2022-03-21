@@ -6,19 +6,12 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { Button } from '@mui/material';
 import {
     Outlet,
-    Link,
     NavLink
 } from "react-router-dom";
 import { makeStyles } from '@mui/styles';
@@ -27,6 +20,7 @@ import { makeStyles } from '@mui/styles';
 // Nav Styles
 const useStyles = makeStyles({
     menu: {
+        marginLeft: '10px !important',
         color: '#000 !important',
         fontSize: '17px !important',
         transition: '0.3s !important',
@@ -38,7 +32,7 @@ const useStyles = makeStyles({
 });
 
 
-const drawerWidth = 200;
+const drawerWidth = 250;
 
 function Dashboard(props) {
     const { window } = props;
@@ -58,12 +52,16 @@ function Dashboard(props) {
                 <Button className={classes.menu}>Appointment</Button>
             </NavLink>
             <Divider />
-            <NavLink to="/dashboard/manage-doctors">
-                <Button className={classes.menu}>Manage Doctors</Button>
-            </NavLink>
-            <Divider />
             <NavLink to="/dashboard/add-doctors">
                 <Button className={classes.menu}>Add Doctors</Button>
+            </NavLink>
+            <Divider />
+            <NavLink to="/dashboard/make-admin">
+                <Button className={classes.menu}>Make Admin</Button>
+            </NavLink>
+            <Divider />
+            <NavLink to="/dashboard/manage-doctors">
+                <Button className={classes.menu}>Manage Doctors</Button>
             </NavLink>
             <Divider />
             <NavLink to="/dashboard/manage-reviews">
@@ -86,10 +84,13 @@ function Dashboard(props) {
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
             <AppBar
+                elevation={0}
                 position="fixed"
                 sx={{
                     width: { sm: `calc(100% - ${drawerWidth}px)` },
                     ml: { sm: `${drawerWidth}px` },
+                    background: '#0186D5',
+                    boxShadow: 'rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px'
                 }}
             >
                 <Toolbar>

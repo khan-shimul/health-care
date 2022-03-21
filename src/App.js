@@ -20,6 +20,7 @@ import ManageAppointment from './pages/Admin/ManageAppointment/ManageAppointment
 import ManageDoctors from './pages/Admin/ManageDoctors/ManageDoctors';
 import ManageReviews from './pages/Admin/ManageReviews/ManageReviews';
 import ManageDiscount from './pages/Admin/ManageDiscount/ManageDiscount';
+import MakeAdmin from './pages/Admin/MakeAdmin/MakeAdmin';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
             <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>}>
               <Route path="/dashboard" element={<DashboardHome />} />
               <Route path="/dashboard/add-doctors" element={<AddDoctors />} />
+              <Route path="/dashboard/make-admin" element={<MakeAdmin />} />
               <Route path="/dashboard/manage-appointment" element={<ManageAppointment />} />
               <Route path="/dashboard/manage-doctors" element={<ManageDoctors />} />
               <Route path="/dashboard/manage-reviews" element={<ManageReviews />} />
