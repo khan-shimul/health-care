@@ -3,21 +3,16 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import logo from '../../../images/logo/logo.png';
 import { Link, NavLink } from 'react-router-dom';
 import { makeStyles } from '@mui/styles';
 import useAuth from '../../../hooks/useAuth/useAuth';
 import { useStyles } from '../../IndexView/Banner/Banner';
-
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const useStyles2 = makeStyles({
     root: {
@@ -42,22 +37,14 @@ const useStyles2 = makeStyles({
 
 const Header = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
-    const [anchorElUser, setAnchorElUser] = React.useState(null);
-    const { user, logout } = useAuth();
+    const { user, logout, admin } = useAuth();
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
     };
-    const handleOpenUserMenu = (event) => {
-        setAnchorElUser(event.currentTarget);
-    };
 
     const handleCloseNavMenu = () => {
         setAnchorElNav(null);
-    };
-
-    const handleCloseUserMenu = () => {
-        setAnchorElUser(null);
     };
 
     const classes = useStyles2();
@@ -161,6 +148,7 @@ const Header = () => {
                         >
                             <Button className={classes.menu}>Contact</Button>
                         </NavLink>
+                        {/* New User */}
                         {
                             !user.email && <NavLink to="/login"
                                 className={(navInfo) => ((navInfo.isActive ? classes.activePage : ''))}
@@ -169,20 +157,26 @@ const Header = () => {
                             </NavLink>
                         }
 
+                        {/* Existing User */}
                         {
                             user.email && <Button onClick={logout} className={classes.menu}>Logout</Button>
                         }
-                        <Button
-                            sx={{ px: 4, py: 1, ml: 3 }}
-                            className={btnClass.btnRegular}
-                        >
-                            Book Appointment
-                        </Button>
-                        <NavLink to="/dashboard"
+                        {/* Normal User */}
+                        {
+                            !admin && <Button
+                                sx={{ px: 4, py: 1, mx: 3 }}
+                                className={btnClass.btnRegular}
+                            >
+                                Book Appointment
+                            </Button>
+                        }
+                        {/* Only Admins Able to See */}
+                        {admin && <NavLink to="/dashboard"
                             className={(navInfo) => ((navInfo.isActive ? classes.activePage : ''))}
                         >
-                            <Button className={classes.menu}>Dashboard</Button>
-                        </NavLink>
+                            <Button sx={{ px: 4, py: 1, mx: 3 }}
+                                className={btnClass.btnRegular}>Dashboard</Button>
+                        </NavLink>}
                     </Box>
                 </Toolbar>
             </Container>

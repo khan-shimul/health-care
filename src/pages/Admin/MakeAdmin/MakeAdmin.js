@@ -1,6 +1,7 @@
 import { Box, Button, TextField, Typography } from '@mui/material';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import Swal from 'sweetalert2';
 import { useStyles } from '../../../compo/IndexView/Banner/Banner';
 import { useStyles2 } from '../../Login/Login/Login';
 
@@ -8,7 +9,27 @@ const MakeAdmin = () => {
     const { register, handleSubmit } = useForm();
     // Handle Make Admin
     const onSubmit = data => {
-        console.log(data)
+        const email = data.email;
+        const user = { email };
+
+        fetch('http://localhost:5000/users/admin', {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Hurrraah!!',
+                        text: `You Have Made Admin Successfully.`
+                    });
+                };
+            })
     };
 
     const classes = useStyles();

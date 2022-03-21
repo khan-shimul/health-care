@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Box, Button, Container, Grid, Typography, TextField, CircularProgress, Alert } from '@mui/material';
+import { Box, Button, Container, Grid, Typography, TextField } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { useForm } from 'react-hook-form';
 
@@ -45,7 +45,7 @@ const AddDoctors = () => {
     return (
         <Box>
             <Container>
-                <Box sx={{ my: 10 }}>
+                <Box sx={{ my: 2 }}>
                     <Grid container>
                         <Grid item xs={12} sm={12} md={12}>
                             <Box>
