@@ -50,6 +50,7 @@ export default function AppointmentTable() {
                     <TableRow>
                         <TableCell sx={{ fontWeight: 700 }}>User Name</TableCell>
                         <TableCell sx={{ fontWeight: 700 }} align="right">Doctor Name</TableCell>
+                        <TableCell sx={{ fontWeight: 700 }} align="right">Fees</TableCell>
                         <TableCell sx={{ fontWeight: 700 }} align="right">Date</TableCell>
                         <TableCell sx={{ fontWeight: 700 }} align="right">Email</TableCell>
                         <TableCell sx={{ fontWeight: 700 }} align="right">Status</TableCell>
@@ -66,9 +67,10 @@ export default function AppointmentTable() {
                                 {appointment.name}
                             </TableCell>
                             <TableCell align="right">{appointment.doctorName}</TableCell>
+                            <TableCell align="right">{appointment.price}</TableCell>
                             <TableCell align="right">{appointment.date}</TableCell>
                             <TableCell align="right">{appointment.email}</TableCell>
-                            <TableCell align="right">Pending</TableCell>
+                            <TableCell align="right">{appointment.status}</TableCell>
                             <TableCell align="right"><ButtonGroup variant="outlined" size="small" aria-label="small button group">
                                 <Button>✓</Button>
                                 <Button color="error" onClick={() => handleAppointmentRemove(appointment._id)}>X</Button>

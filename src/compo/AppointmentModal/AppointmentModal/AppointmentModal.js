@@ -47,8 +47,12 @@ export default function AppointmentModal({ setIsAppointment, doctor, open, handl
         data.date = value;
         const appointment = {
             ...data,
-            date: data.date.toLocaleDateString()
+            date: data.date.toLocaleDateString(),
+            email: user.email,
+            price: doctor.price,
+            status: 'Pending'
         };
+        console.log(appointment)
 
         // send data to server
         fetch('http://localhost:5000/appointments', {
@@ -109,7 +113,7 @@ export default function AppointmentModal({ setIsAppointment, doctor, open, handl
                             variant="outlined"
                             {...register("name")}
                         />
-                        <TextField
+                        {/* <TextField
                             sx={{ width: { xs: 1, md: '100%' }, mb: 2 }}
                             className={classes2.textFiled}
                             type="email"
@@ -117,7 +121,7 @@ export default function AppointmentModal({ setIsAppointment, doctor, open, handl
                             label="Email Address"
                             variant="outlined"
                             {...register("email")}
-                        />
+                        /> */}
                         <TextField
                             sx={{ width: { xs: 1, md: '100%' }, mb: 3 }}
                             className={classes2.textFiled}
