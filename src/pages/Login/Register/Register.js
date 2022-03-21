@@ -10,11 +10,13 @@ import { useStyles2 } from '../Login/Login';
 import Swal from 'sweetalert2';
 import useAuth from '../../../hooks/useAuth/useAuth';
 import { useForm } from 'react-hook-form';
+import { useStyles } from '../../../compo/IndexView/Banner/Banner';
 
 const Register = () => {
     const { register, handleSubmit } = useForm();
     const { user, registerNewUser, loading, authError } = useAuth();
     const navigate = useNavigate();
+    const classes = useStyles();
     const classes2 = useStyles2();
 
     // Handle Register Form
@@ -108,7 +110,7 @@ const Register = () => {
                                     {authError && <Alert severity="error" sx={{ width: { xs: 1, md: '80%' }, mb: 2 }}>{authError}</Alert>}
                                     <Button
                                         sx={{ width: { xs: 1, md: '80%' }, py: 1.5, mb: 2 }}
-                                        // className={classes.btnRegular}
+                                        className={classes.btnRegular}
                                         type='submit'
                                     >
                                         Register</Button>

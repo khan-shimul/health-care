@@ -15,10 +15,11 @@ import logo from '../../../images/logo/logo.png';
 import { Link, NavLink } from 'react-router-dom';
 import { makeStyles } from '@mui/styles';
 import useAuth from '../../../hooks/useAuth/useAuth';
+import { useStyles } from '../../IndexView/Banner/Banner';
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-const useStyles = makeStyles({
+const useStyles2 = makeStyles({
     root: {
         background: '#fff !important',
         padding: '10px',
@@ -59,7 +60,8 @@ const Header = () => {
         setAnchorElUser(null);
     };
 
-    const classes = useStyles();
+    const classes = useStyles2();
+    const btnClass = useStyles();
 
     return (
         <AppBar
@@ -170,36 +172,12 @@ const Header = () => {
                         {
                             user.email && <Button onClick={logout} className={classes.menu}>Logout</Button>
                         }
-                    </Box>
-
-                    <Box sx={{ flexGrow: 0, ml: 2 }}>
-                        <Tooltip title="Open settings">
-                            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                            </IconButton>
-                        </Tooltip>
-                        <Menu
-                            sx={{ mt: '45px' }}
-                            id="menu-appbar"
-                            anchorEl={anchorElUser}
-                            anchorOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
-                            open={Boolean(anchorElUser)}
-                            onClose={handleCloseUserMenu}
+                        <Button
+                            sx={{ px: 4, py: 1, ml: 3 }}
+                            className={btnClass.btnRegular}
                         >
-                            {settings.map((setting) => (
-                                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                    <Typography textAlign="center">{setting}</Typography>
-                                </MenuItem>
-                            ))}
-                        </Menu>
+                            Book Appointment
+                        </Button>
                     </Box>
                 </Toolbar>
             </Container>

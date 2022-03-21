@@ -10,6 +10,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import Swal from 'sweetalert2';
 import { useForm } from 'react-hook-form';
 import useAuth from '../../../hooks/useAuth/useAuth';
+import { useStyles } from '../../../compo/IndexView/Banner/Banner';
 
 
 export const useStyles2 = makeStyles({
@@ -60,6 +61,7 @@ const Login = () => {
         });
     };
 
+    const classes = useStyles();
     const classes2 = useStyles2();
     return (
         <Box>
@@ -98,7 +100,7 @@ const Login = () => {
                                     {authError && <Alert severity="error" sx={{ width: { xs: 1, md: '80%' }, mb: 2 }}>{authError}</Alert>}
                                     <Button
                                         sx={{ width: { xs: 1, md: '80%' }, py: 1.5, mb: 2 }}
-                                        // className={classes.btnRegular}
+                                        className={classes.btnRegular}
                                         type="submit"
                                     >
                                         Login</Button>
