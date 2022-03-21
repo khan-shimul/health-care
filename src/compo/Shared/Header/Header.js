@@ -14,6 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import logo from '../../../images/logo/logo.png';
 import { Link, NavLink } from 'react-router-dom';
 import { makeStyles } from '@mui/styles';
+import useAuth from '../../../hooks/useAuth/useAuth';
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
@@ -41,6 +42,7 @@ const useStyles = makeStyles({
 const Header = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
+    const { user, logout } = useAuth();
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -116,6 +118,14 @@ const Header = () => {
                                 <Link to="/contact">
                                     <MenuItem className={classes.menu}>Contact</MenuItem>
                                 </Link>
+                                {
+                                    user?.email ?
+                                        <MenuItem onClick={logout} className={classes.menu}>Logout</MenuItem>
+                                        :
+                                        <Link to="/login">
+                                            <MenuItem className={classes.menu}>Login</MenuItem>
+                                        </Link>
+                                }
                             </Box>
                         </Menu>
                     </Box>
@@ -149,6 +159,17 @@ const Header = () => {
                         >
                             <Button className={classes.menu}>Contact</Button>
                         </NavLink>
+                        {
+                            !user.email && <NavLink to="/login"
+                                className={(navInfo) => ((navInfo.isActive ? classes.activePage : ''))}
+                            >
+                                <Button className={classes.menu}>Login</Button>
+                            </NavLink>
+                        }
+
+                        {
+                            user.email && <Button onClick={logout} className={classes.menu}>Logout</Button>
+                        }
                     </Box>
 
                     <Box sx={{ flexGrow: 0, ml: 2 }}>
