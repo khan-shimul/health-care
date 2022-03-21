@@ -119,7 +119,7 @@ export default function AppointmentModal({ setIsAppointment, doctor, open, handl
                             {...register("email")}
                         />
                         <TextField
-                            sx={{ width: { xs: 1, md: '100%' }, mb: 2 }}
+                            sx={{ width: { xs: 1, md: '100%' }, mb: 3 }}
                             className={classes2.textFiled}
                             type="number"
                             required

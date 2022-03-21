@@ -178,6 +178,11 @@ const Header = () => {
                         >
                             Book Appointment
                         </Button>
+                        <NavLink to="/dashboard"
+                            className={(navInfo) => ((navInfo.isActive ? classes.activePage : ''))}
+                        >
+                            <Button className={classes.menu}>Dashboard</Button>
+                        </NavLink>
                     </Box>
                 </Toolbar>
             </Container>
