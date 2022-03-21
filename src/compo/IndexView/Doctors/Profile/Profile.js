@@ -1,6 +1,7 @@
 import { Box, Button, Container, Grid, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import AppointmentModal from '../../../AppointmentModal/AppointmentModal/AppointmentModal';
 import Footer from '../../../Shared/Footer/Footer';
 import Header from '../../../Shared/Header/Header';
 import { useStyles } from '../../Banner/Banner';
@@ -10,12 +11,19 @@ const Profile = () => {
     const [doctor, setDoctor] = useState({});
     // Destructuring
     const { name, title, price, image, description, experience, speciality, degrees, workDays, } = doctor;
+
     // Load Doctor
     useEffect(() => {
         fetch(`http://localhost:5000/doctors/${id}`)
             .then(res => res.json())
             .then(data => setDoctor(data))
     }, []);
+
+
+    // Modal
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
 
     const classes = useStyles();
 
@@ -150,6 +158,7 @@ const Profile = () => {
                                 <Button
                                     sx={{ mt: 3, px: 4, py: 1.5 }}
                                     className={classes.btnRegular}
+                                    onClick={handleOpen}
                                 >
                                     Create Appointment
                                 </Button>
@@ -157,6 +166,12 @@ const Profile = () => {
                         </Grid>
                     </Grid>
                 </Box>
+                {/* Modal */}
+                <AppointmentModal
+                    doctor={doctor}
+                    open={open}
+                    handleClose={handleClose}
+                />
             </Container>
             <Footer />
         </Box>
