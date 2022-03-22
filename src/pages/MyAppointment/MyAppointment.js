@@ -19,7 +19,7 @@ const MyAppointment = () => {
     const { user } = useAuth();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myAppointments?email=${user.email}`)
+        fetch(`https://whispering-escarpment-66831.herokuapp.com/myAppointments?email=${user.email}`)
             .then(res => res.json())
             .then(data => {
                 setMyAppointments(data)

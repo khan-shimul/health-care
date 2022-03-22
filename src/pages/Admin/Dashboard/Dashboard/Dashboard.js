@@ -49,10 +49,6 @@ function Dashboard(props) {
         <div>
             <Toolbar />
             <Divider />
-            <NavLink to="/dashboard/feedback">
-                <Button className={classes.menu}>Feedback</Button>
-            </NavLink>
-            <Divider />
             <NavLink to="/dashboard/add-doctors">
                 <Button className={classes.menu}>Add Doctors</Button>
             </NavLink>

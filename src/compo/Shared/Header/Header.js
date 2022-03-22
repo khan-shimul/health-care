@@ -168,7 +168,7 @@ const Header = () => {
                         </NavLink>}
                     </Box>
                     {/* User Profile */}
-                    <Profile classes={classes} />
+                    {!admin && <Profile classes={classes} />}
                 </Toolbar>
             </Container>
         </AppBar>

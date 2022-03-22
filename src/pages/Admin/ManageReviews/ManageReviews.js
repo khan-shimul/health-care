@@ -6,14 +6,14 @@ const ManageReviews = () => {
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
+        fetch('https://whispering-escarpment-66831.herokuapp.com/reviews')
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [reviews])
 
     // handle Reviews update
     const handleReviewApprove = id => {
-        fetch(`http://localhost:5000/reviews/${id}`, {
+        fetch(`https://whispering-escarpment-66831.herokuapp.com/reviews/${id}`, {
             method: 'PUT'
         })
             .then(res => res.json())
@@ -27,7 +27,7 @@ const ManageReviews = () => {
     const handleDeleteReview = id => {
         const proceed = window.confirm('Are you sure want to delete the Review?');
         if (proceed) {
-            fetch(`http://localhost:5000/reviews/${id}`, {
+            fetch(`https://whispering-escarpment-66831.herokuapp.com/reviews/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

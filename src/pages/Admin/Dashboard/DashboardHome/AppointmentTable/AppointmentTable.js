@@ -23,7 +23,7 @@ export default function AppointmentTable() {
 
     // Handle Status Update
     const handleAppointmentStatus = id => {
-        fetch(`http://localhost:5000/appointments/${id}`, {
+        fetch(`https://whispering-escarpment-66831.herokuapp.com/appointments/${id}`, {
             method: 'PUT'
         })
             .then(res => res.json())

@@ -17,7 +17,7 @@ const GiveFeedback = () => {
     // Add Reviews
     const onSubmit = data => {
         data.isApproved = false;
-        axios.post('http://localhost:5000/reviews', { data })
+        axios.post('https://whispering-escarpment-66831.herokuapp.com/reviews', { data })
             .then(result => {
                 if (result.data.insertedId) {
                     Swal.fire({
