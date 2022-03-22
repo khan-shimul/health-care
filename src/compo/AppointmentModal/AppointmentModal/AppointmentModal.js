@@ -10,6 +10,7 @@ import useAuth from '../../../hooks/useAuth/useAuth';
 import DateTime from '../DateTime/DateTime';
 import { useStyles2 } from '../../../pages/Login/Login/Login';
 import { useStyles } from '../../IndexView/Banner/Banner';
+import { useNavigate } from 'react-router-dom';
 
 const style = {
     position: 'absolute',
@@ -40,6 +41,7 @@ export default function AppointmentModal({ setIsAppointment, doctor, open, handl
     const { register, handleSubmit } = useForm();
     // Date and Time
     const [value, setValue] = React.useState(new Date());
+    // Auth
     const { user } = useAuth();
 
     // Handle Appointment Form

@@ -20,6 +20,7 @@ import { makeStyles } from '@mui/styles';
 // Nav Styles
 const useStyles = makeStyles({
     menu: {
+        display: 'block',
         marginLeft: '10px !important',
         color: '#000 !important',
         fontSize: '17px !important',
@@ -47,6 +48,10 @@ function Dashboard(props) {
     const drawer = (
         <div>
             <Toolbar />
+            <Divider />
+            <NavLink to="/dashboard/feedback">
+                <Button className={classes.menu}>Feedback</Button>
+            </NavLink>
             <Divider />
             <NavLink to="/dashboard/add-doctors">
                 <Button className={classes.menu}>Add Doctors</Button>

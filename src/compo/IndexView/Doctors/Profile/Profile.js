@@ -20,10 +20,15 @@ const Profile = () => {
         fetch(`https://whispering-escarpment-66831.herokuapp.com/doctors/${id}`)
             .then(res => res.json())
             .then(data => {
+                // Store Data
                 setDoctor(data)
-                if (data.price >= 25000) {
-                    const discountAmount = parseInt(data.price) * (discount / 100);
-                    const totalAmount = data.price - discountAmount;
+                // Convert string to num
+                const priceNum = parseInt(data.price);
+                const discountPercentNum = parseInt(data.discount);
+                // check and implement discount
+                if (priceNum >= 25000) {
+                    const discountAmount = (priceNum) * (discountPercentNum / 100);
+                    const totalAmount = priceNum - discountAmount;
                     setTotal(totalAmount)
                 }
             })
@@ -170,7 +175,7 @@ const Profile = () => {
                                         variant="body1"
                                         sx={{ fontSize: '16px', color: '#565656', fontWeight: 500 }}
                                     >
-                                        ৳ {total} Got {discount}% Discount
+                                        ৳ {total} <Box component="span" sx={{ color: '#FE824C' }}>Got {discount}% Discount</Box>
                                     </Typography>
                                 </Box>}
                                 {/* Create Appointment */}
