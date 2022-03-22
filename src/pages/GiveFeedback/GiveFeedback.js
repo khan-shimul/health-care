@@ -3,17 +3,32 @@ import Header from '../../compo/Shared/Header/Header';
 import Footer from '../../compo/Shared/Footer/Footer';
 import Swal from 'sweetalert2';
 import { useForm } from 'react-hook-form';
-import { Box, Button, Container, Grid, Typography, TextField, CircularProgress, Alert } from '@mui/material';
+import { Box, Button, Container, Grid, Typography, TextField } from '@mui/material';
 import { useStyles } from '../../compo/IndexView/Banner/Banner';
 import { useStyles2 } from '../Login/Login/Login';
 import feedbackImg from '../../images/feedbackk/feedback2.png';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const GiveFeedback = () => {
-    const { register, handleSubmit } = useForm();
-    // Handle Login Form
+    const { register, handleSubmit, reset } = useForm();
+    const navigate = useNavigate();
+
+    // Add Reviews
     const onSubmit = data => {
-        // Call/register existing user func
-        console.log(data)
+        data.isApproved = false;
+        axios.post('http://localhost:5000/reviews', { data })
+            .then(result => {
+                if (result.data.insertedId) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success',
+                        text: `Thanks for your valuable feedback!`
+                    });
+                    reset();
+                    navigate('/');
+                }
+            })
     };
 
     const classes = useStyles();

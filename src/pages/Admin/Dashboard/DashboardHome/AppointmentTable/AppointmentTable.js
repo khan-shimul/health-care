@@ -14,11 +14,23 @@ import Swal from 'sweetalert2';
 export default function AppointmentTable() {
     const [appointments, setAppointments] = React.useState([]);
 
+    // Load Data from DB
     React.useEffect(() => {
         fetch('https://whispering-escarpment-66831.herokuapp.com/appointments')
             .then(res => res.json())
             .then(data => setAppointments(data))
-    }, [])
+    }, [appointments])
+
+    // Handle Status Update
+    const handleAppointmentStatus = id => {
+        fetch(`http://localhost:5000/appointments/${id}`, {
+            method: 'PUT'
+        })
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data);
+            })
+    }
 
     // Handle Delete Appointment
     const handleAppointmentRemove = id => {
@@ -72,7 +84,7 @@ export default function AppointmentTable() {
                             <TableCell align="right">{appointment.email}</TableCell>
                             <TableCell align="right">{appointment.status}</TableCell>
                             <TableCell align="right"><ButtonGroup variant="outlined" size="small" aria-label="small button group">
-                                <Button>✓</Button>
+                                <Button onClick={() => handleAppointmentStatus(appointment._id)}>✓</Button>
                                 <Button color="error" onClick={() => handleAppointmentRemove(appointment._id)}>X</Button>
                             </ButtonGroup></TableCell>
                         </TableRow>
