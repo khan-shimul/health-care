@@ -12,7 +12,7 @@ const UpdateDoctor = () => {
 
     // Load Doctor
     useEffect(() => {
-        fetch(`http://localhost:5000/doctors/${id}`)
+        fetch(`https://whispering-escarpment-66831.herokuapp.com/doctors/${id}`)
             .then(res => res.json())
             .then(data => setDoctor(data))
     }, []);
@@ -29,7 +29,7 @@ const UpdateDoctor = () => {
     // Handle Update Doctor Info
     const handleUpdateDoctor = e => {
         e.preventDefault();
-        const url = `http://localhost:5000/doctors/${id}`;
+        const url = `https://whispering-escarpment-66831.herokuapp.com/doctors/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {

@@ -8,7 +8,7 @@ const ManageDoctors = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch('http://localhost:5000/doctors')
+        fetch('https://whispering-escarpment-66831.herokuapp.com/doctors')
             .then(res => res.json())
             .then(data => setDoctors(data))
     }, [])
@@ -22,7 +22,7 @@ const ManageDoctors = () => {
     const handleRemoveDoctor = id => {
         const proceed = window.confirm('Are you sure you want to delete the document?');
         if (proceed) {
-            const url = `http://localhost:5000/doctors/${id}`;
+            const url = `https://whispering-escarpment-66831.herokuapp.com/doctors/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

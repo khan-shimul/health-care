@@ -15,7 +15,7 @@ export default function AppointmentTable() {
     const [appointments, setAppointments] = React.useState([]);
 
     React.useEffect(() => {
-        fetch('http://localhost:5000/appointments')
+        fetch('https://whispering-escarpment-66831.herokuapp.com/appointments')
             .then(res => res.json())
             .then(data => setAppointments(data))
     }, [])
@@ -24,7 +24,7 @@ export default function AppointmentTable() {
     const handleAppointmentRemove = id => {
         const proceed = window.confirm('Are you sure you want to delete this appointment?');
         if (proceed) {
-            const url = `http://localhost:5000/appointments/${id}`;
+            const url = `https://whispering-escarpment-66831.herokuapp.com/appointments/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

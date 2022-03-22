@@ -33,7 +33,7 @@ const AddDoctors = () => {
     // add Doctors api
     const onSubmit = data => {
         data.discount = 20;
-        axios.post('http://localhost:5000/doctors', { data })
+        axios.post('https://whispering-escarpment-66831.herokuapp.com/doctors', { data })
             .then(result => {
                 if (result.data.insertedId) {
                     alert('added successfully')

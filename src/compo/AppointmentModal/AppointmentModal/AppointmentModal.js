@@ -54,7 +54,7 @@ export default function AppointmentModal({ setIsAppointment, doctor, open, handl
         };
 
         // send data to server
-        fetch('http://localhost:5000/appointments', {
+        fetch('https://whispering-escarpment-66831.herokuapp.com/appointments', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
