@@ -52,7 +52,7 @@ export default function AppointmentModal({ setIsAppointment, doctor, open, handl
             date: data.date.toLocaleDateString(),
             email: user.email,
             price: doctor.price,
-            status: 'Pending'
+            status: 'Not Visited'
         };
 
         // send data to server

@@ -3,12 +3,10 @@ import React, { useState } from 'react';
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
 
-const Profile = () => {
+const MyProfile = () => {
     const [anchorElNav, setAnchorElNav] = useState(null);
 
 
@@ -52,7 +50,7 @@ const Profile = () => {
                     }}
                 >
                     <Box onClick={handleCloseNavMenu}>
-                        <Link to="/home">
+                        <Link to="/my-appointment">
                             <MenuItem>My Appointment</MenuItem>
                         </Link>
                         <Link to="/feedback">
@@ -66,4 +64,4 @@ const Profile = () => {
     );
 };
 
-export default Profile;
+export default MyProfile;

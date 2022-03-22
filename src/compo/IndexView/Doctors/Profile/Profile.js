@@ -30,6 +30,7 @@ const Profile = () => {
                     const discountAmount = (priceNum) * (discountPercentNum / 100);
                     const totalAmount = priceNum - discountAmount;
                     setTotal(totalAmount)
+                    data.price = totalAmount;
                 }
             })
     }, []);

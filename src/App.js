@@ -21,6 +21,7 @@ import ManageDoctors from './pages/Admin/ManageDoctors/ManageDoctors/ManageDocto
 import UpdateDoctor from './pages/Admin/ManageDoctors/UpdateDoctor/UpdateDoctor';
 import ManageAppointments from './pages/Admin/Dashboard/DashboardHome/ManageAppointments/ManageAppointments';
 import GiveFeedback from './pages/GiveFeedback/GiveFeedback';
+import MyAppointment from './pages/MyAppointment/MyAppointment';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/my-appointment" element={<MyAppointment />} />
             <Route path="/feedback" element={<GiveFeedback />} />
             {/* Dashboard */}
             <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>}>

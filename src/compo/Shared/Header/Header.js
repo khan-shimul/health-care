@@ -13,7 +13,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { makeStyles } from '@mui/styles';
 import useAuth from '../../../hooks/useAuth/useAuth';
 import { useStyles } from '../../IndexView/Banner/Banner';
-import Profile from './profile';
+import Profile from './MyProfile';
 
 const useStyles2 = makeStyles({
     root: {
