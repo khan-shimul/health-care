@@ -13,6 +13,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { makeStyles } from '@mui/styles';
 import useAuth from '../../../hooks/useAuth/useAuth';
 import { useStyles } from '../../IndexView/Banner/Banner';
+import Profile from './profile';
 
 const useStyles2 = makeStyles({
     root: {
@@ -178,6 +179,8 @@ const Header = () => {
                                 className={btnClass.btnRegular}>Dashboard</Button>
                         </NavLink>}
                     </Box>
+                    {/* User Profile */}
+                    <Profile />
                 </Toolbar>
             </Container>
         </AppBar>

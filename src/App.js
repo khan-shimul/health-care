@@ -36,10 +36,10 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/feedback" element={<GiveFeedback />} />
             {/* Dashboard */}
             <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>}>
               <Route path="/dashboard" element={<ManageAppointments />} />
-              <Route path="/dashboard/feedback" element={<GiveFeedback />} />
               <Route path="/dashboard/add-doctors" element={<AddDoctors />} />
               <Route path="/dashboard/make-admin" element={<MakeAdmin />} />
               <Route path="/dashboard/manage-doctors" element={<ManageDoctors />} />
