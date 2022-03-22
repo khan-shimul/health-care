@@ -25,7 +25,7 @@ const Testimonial = ({ doctor }) => {
                 <Grid container spacing={2}>
 
                     {
-                        filteredReviews.map(filterReview => <Grid key={filterReview._id} xs={12} sm={12} md={4}>
+                        filteredReviews.map(filterReview => (filterReview.isApproved && <Grid key={filterReview._id} xs={12} sm={12} md={4}>
                             <Paper elevation={0} sx={{ p: 2, boxShadow: 'rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px' }}>
                                 <Box>
                                     <Typography
@@ -42,7 +42,7 @@ const Testimonial = ({ doctor }) => {
                                     ><Box component="span" sx={{ fontWeight: 600 }}>"{filterReview.comment}"</Box> </Typography>
                                 </Box>
                             </Paper>
-                        </Grid>)
+                        </Grid>))
                     }
                 </Grid>
             </Box>}
