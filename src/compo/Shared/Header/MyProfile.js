@@ -1,14 +1,15 @@
-import { Box } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import React, { useState } from 'react';
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth/useAuth';
 
-const MyProfile = () => {
+const MyProfile = ({ classes }) => {
     const [anchorElNav, setAnchorElNav] = useState(null);
-
+    const { user, logout } = useAuth();
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -20,7 +21,7 @@ const MyProfile = () => {
     return (
         <div>
             {/* Mobile View */}
-            <Box sx={{ flexGrow: 1, display: { xs: 'flex' }, color: '#1C2A47' }}>
+            <Box sx={{ flexGrow: 1, display: { xs: 'flex' }, color: '#1C2A47', ml: 2 }}>
                 <IconButton
                     size="large"
                     aria-label="account of current user"
@@ -51,12 +52,24 @@ const MyProfile = () => {
                 >
                     <Box onClick={handleCloseNavMenu}>
                         <Link to="/my-appointment">
-                            <MenuItem>My Appointment</MenuItem>
+                            <MenuItem className={classes.menu}>My Appointment</MenuItem>
                         </Link>
                         <Link to="/feedback">
-                            <MenuItem>Feedback</MenuItem>
+                            <MenuItem className={classes.menu}>Feedback</MenuItem>
                         </Link>
+                        {/* New User */}
+                        {
+                            !user.email && <Link to="/login"
+                                className={classes.menu}
+                            >
+                                <MenuItem className={classes.menu}>Login</MenuItem>
+                            </Link>
+                        }
 
+                        {/* Existing User */}
+                        {
+                            user.email && <MenuItem onClick={logout} className={classes.menu}>Logout</MenuItem>
+                        }
                     </Box>
                 </Menu>
             </Box>

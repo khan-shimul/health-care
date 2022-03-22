@@ -149,28 +149,16 @@ const Header = () => {
                         >
                             <Button className={classes.menu}>Contact</Button>
                         </NavLink>
-                        {/* New User */}
-                        {
-                            !user.email && <NavLink to="/login"
-                                className={(navInfo) => ((navInfo.isActive ? classes.activePage : ''))}
-                            >
-                                <Button className={classes.menu}>Login</Button>
-                            </NavLink>
-                        }
 
-                        {/* Existing User */}
-                        {
-                            user.email && <Button onClick={logout} className={classes.menu}>Logout</Button>
-                        }
                         {/* Normal User */}
-                        {
+                        {/* {
                             !admin && <Button
                                 sx={{ px: 4, py: 1, mx: 3 }}
                                 className={btnClass.btnRegular}
                             >
                                 Book Appointment
                             </Button>
-                        }
+                        } */}
                         {/* Only Admins Able to See */}
                         {admin && <NavLink to="/dashboard"
                             className={(navInfo) => ((navInfo.isActive ? classes.activePage : ''))}
@@ -180,7 +168,7 @@ const Header = () => {
                         </NavLink>}
                     </Box>
                     {/* User Profile */}
-                    <Profile />
+                    <Profile classes={classes} />
                 </Toolbar>
             </Container>
         </AppBar>
