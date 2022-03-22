@@ -6,6 +6,7 @@ import AppointmentModal from '../../../AppointmentModal/AppointmentModal/Appoint
 import Footer from '../../../Shared/Footer/Footer';
 import Header from '../../../Shared/Header/Header';
 import { useStyles } from '../../Banner/Banner';
+import Testimonial from './Testimonial';
 
 const Profile = () => {
     const [isAppointment, setIsAppointment] = useState(false);
@@ -22,6 +23,7 @@ const Profile = () => {
             .then(data => {
                 // Store Data
                 setDoctor(data)
+
                 // Convert string to num
                 const priceNum = parseInt(data.price);
                 const discountPercentNum = parseInt(data.discount);
@@ -198,6 +200,11 @@ const Profile = () => {
                     total={total}
                     open={open}
                     handleClose={handleClose}
+                />
+
+                {/* Testimonial */}
+                <Testimonial
+                    doctor={doctor}
                 />
             </Container>
             <Footer />

@@ -10,7 +10,6 @@ import useAuth from '../../../hooks/useAuth/useAuth';
 import DateTime from '../DateTime/DateTime';
 import { useStyles2 } from '../../../pages/Login/Login/Login';
 import { useStyles } from '../../IndexView/Banner/Banner';
-import { useNavigate } from 'react-router-dom';
 
 const style = {
     position: 'absolute',
