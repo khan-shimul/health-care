@@ -5,11 +5,9 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
-import useAuth from '../../../hooks/useAuth/useAuth';
 
 const MyProfile = ({ classes }) => {
     const [anchorElNav, setAnchorElNav] = useState(null);
-    const { user, logout } = useAuth();
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -57,19 +55,6 @@ const MyProfile = ({ classes }) => {
                         <Link to="/feedback">
                             <MenuItem className={classes.menu}>Feedback</MenuItem>
                         </Link>
-                        {/* New User */}
-                        {
-                            !user.email && <Link to="/login"
-                                className={classes.menu}
-                            >
-                                <MenuItem className={classes.menu}>Login</MenuItem>
-                            </Link>
-                        }
-
-                        {/* Existing User */}
-                        {
-                            user.email && <MenuItem onClick={logout} className={classes.menu}>Logout</MenuItem>
-                        }
                     </Box>
                 </Menu>
             </Box>

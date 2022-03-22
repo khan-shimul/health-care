@@ -63,7 +63,7 @@ const Header = () => {
                         component="div"
                         sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
                     >
-                        <img src={logo} alt="" />
+                        <Link to="/"><img src={logo} alt="" /></Link>
                     </Box>
                     {/* Mobile View */}
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, color: '#1C2A47' }}>
@@ -149,6 +149,13 @@ const Header = () => {
                         >
                             <Button className={classes.menu}>Contact</Button>
                         </NavLink>
+                        {!user.email && <NavLink to="/login"
+                        >
+                            <Button className={classes.menu}>Login</Button>
+                        </NavLink>}
+                        {user.email &&
+                            <Button onClick={logout} className={classes.menu}>Logout</Button>
+                        }
 
                         {/* Normal User */}
                         {/* {

@@ -22,6 +22,10 @@ import UpdateDoctor from './pages/Admin/ManageDoctors/UpdateDoctor/UpdateDoctor'
 import ManageAppointments from './pages/Admin/Dashboard/DashboardHome/ManageAppointments/ManageAppointments';
 import GiveFeedback from './pages/GiveFeedback/GiveFeedback';
 import MyAppointment from './pages/MyAppointment/MyAppointment';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import OurDoctors from './pages/OurDoctors/OurDoctors';
+AOS.init();
 
 function App() {
   return (
@@ -33,12 +37,13 @@ function App() {
             <Route path="/home" element={<Home />} />
             {/* <Route path="/doctors" element={<Doctors />} /> */}
             <Route path="/doctor-profile/:id" element={<PrivateRoute><Profile /></PrivateRoute>} />
+            <Route path="/doctors" element={<OurDoctors />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/my-appointment" element={<MyAppointment />} />
-            <Route path="/feedback" element={<GiveFeedback />} />
+            <Route path="/my-appointment" element={<PrivateRoute><MyAppointment /></PrivateRoute>} />
+            <Route path="/feedback" element={<PrivateRoute><GiveFeedback /></PrivateRoute>} />
             {/* Dashboard */}
             <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>}>
               <Route path="/dashboard" element={<ManageAppointments />} />

@@ -20,7 +20,7 @@ const Testing = () => {
                 </Box>
                 <Grid container spacing={6}>
                     {/* Operation Theater */}
-                    <Grid item xs={12} sm={12} md={6}>
+                    <Grid data-aos="zoom-in-right" data-aos-duration="2000" item xs={12} sm={12} md={6}>
                         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                             <Box sx={{ background: '#0186D5', px: 2, mr: 2.5, height: '70px', width: '70px', display: 'flex', justifyContent: 'center', alignItems: 'center', borderRadius: '5px' }}>
                                 <MedicalInformationIcon
@@ -44,7 +44,7 @@ const Testing = () => {
                         </Box>
                     </Grid>
                     {/* Emergency Services */}
-                    <Grid item xs={12} sm={12} md={6}>
+                    <Grid data-aos="zoom-in-left" data-aos-duration="2000" item xs={12} sm={12} md={6}>
                         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                             <Box sx={{ background: '#0186D5', px: 2, mr: 2.5, height: '70px', width: '70px', display: 'flex', justifyContent: 'center', alignItems: 'center', borderRadius: '5px' }}>
                                 <LocalHospitalIcon
@@ -68,7 +68,7 @@ const Testing = () => {
                         </Box>
                     </Grid>
                     {/* Rehabilitation Center */}
-                    <Grid item xs={12} sm={12} md={6}>
+                    <Grid data-aos="zoom-in-right" data-aos-duration="2000" item xs={12} sm={12} md={6}>
                         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                             <Box sx={{ background: '#0186D5', px: 2, mr: 2.5, height: '70px', width: '70px', display: 'flex', justifyContent: 'center', alignItems: 'center', borderRadius: '5px' }}>
                                 <VaccinesIcon
@@ -93,7 +93,7 @@ const Testing = () => {
                         </Box>
                     </Grid>
                     {/* Qualified Doctors */}
-                    <Grid item xs={12} sm={12} md={6}>
+                    <Grid data-aos="zoom-in-left" data-aos-duration="2000" item xs={12} sm={12} md={6}>
                         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                             <Box sx={{ background: '#0186D5', px: 2, mr: 2.5, height: '70px', width: '70px', display: 'flex', justifyContent: 'center', alignItems: 'center', borderRadius: '5px' }}>
                                 <MasksIcon

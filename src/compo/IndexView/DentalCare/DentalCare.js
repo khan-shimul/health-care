@@ -9,10 +9,10 @@ const DentalCare = () => {
         <Box component="section" sx={{ my: 10 }}>
             <Container maxWidth="lg">
                 <Grid container spacing={5} sx={{ alignItems: 'center' }}>
-                    <Grid item xs={12} sm={12} md={6}>
+                    <Grid data-aos="zoom-in-left" data-aos-duration="1000" item xs={12} sm={12} md={6}>
                         <img style={{ width: '100%', height: 'auto' }} src={dentalImg} alt="" />
                     </Grid>
-                    <Grid item xs={12} sm={12} md={6}>
+                    <Grid data-aos="zoom-in-right" data-aos-duration="1000" item xs={12} sm={12} md={6}>
                         <Box>
                             <Typography
                                 variant="h4"

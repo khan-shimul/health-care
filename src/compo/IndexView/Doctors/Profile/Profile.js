@@ -58,7 +58,7 @@ const Profile = () => {
         <Box>
             <Header />
             <Container maxWidth="lg">
-                <Box component="section" sx={{ my: 10 }}>
+                <Box component="section" sx={{ mt: 10, mb: 5 }}>
                     <Grid container spacing={4} sx={{ alignItems: 'center' }}>
                         <Grid item xs={12} sm={12} md={5}>
                             <Box>

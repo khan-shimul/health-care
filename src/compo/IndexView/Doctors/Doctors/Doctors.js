@@ -1,4 +1,4 @@
-import { Box, Container, Grid, Typography } from '@mui/material';
+import { Box, CircularProgress, Container, Grid, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import Doctor from '../Doctor/Doctor';
 
@@ -12,7 +12,7 @@ const Doctors = () => {
     }, [])
 
     return (
-        <Box component="section">
+        <Box id="doctors" component="section">
             <Container maxWidth="lg">
                 <Box>
                     <Typography
@@ -28,6 +28,8 @@ const Doctors = () => {
                         Best Doctors can help. Get an Expert Medical Opinion from one of our world-renowned specialists
                     </Typography>
                 </Box>
+                {/* Spinner */}
+                {doctors.length < 1 && <CircularProgress sx={{ color: '#0186D5', display: 'flex', mx: 'auto', my: 5 }} />}
                 {/* Display Doctors */}
                 <Box component="div" sx={{ my: 5 }}>
                     <Grid container spacing={4}>

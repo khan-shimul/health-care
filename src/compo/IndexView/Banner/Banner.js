@@ -37,7 +37,7 @@ const Banner = () => {
             <Container maxWidth="lg">
                 <Grid container  >
                     <Grid item xs={12} sm={12} md={6}>
-                        <Box>
+                        <Box data-aos="zoom-in-right" data-aos-duration="3000">
                             <Typography
                                 variant="h2"
                                 sx={{ fontSize: { xs: '23px', sm: '33px', md: '55px' }, color: '#404D5F', fontWeight: 800 }}

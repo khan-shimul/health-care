@@ -117,7 +117,7 @@ const UpdateDoctor = () => {
                         sx={{ width: { xs: 1, md: '80%' }, mb: 2 }}
                         className={classes2.textFiled}
                         required
-                        label="Discount"
+                        label="Discount Percentage"
                         name="discount"
                         variant="outlined"
                         InputLabelProps={{

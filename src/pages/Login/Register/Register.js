@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 import { Box, Button, Container, Grid, Typography, TextField, CircularProgress, Alert } from '@mui/material';
 import login from '../../../images/login/login.png';
 import GoogleIcon from '@mui/icons-material/Google';
@@ -14,8 +14,9 @@ import { useStyles } from '../../../compo/IndexView/Banner/Banner';
 
 const Register = () => {
     const { register, handleSubmit } = useForm();
-    const { user, registerNewUser, loading, authError } = useAuth();
+    const { user, registerNewUser, loginWithGoogle, loading, authError } = useAuth();
     const navigate = useNavigate();
+    const location = useLocation();
     const classes = useStyles();
     const classes2 = useStyles2();
 
@@ -44,6 +45,11 @@ const Register = () => {
         // Call / register new user func
         registerNewUser(data.email, data.password, data.name, navigate);
     };
+
+    // Handle login with google
+    const handleLoginWithGoogle = () => {
+        loginWithGoogle(location, navigate);
+    }
 
     // Display Successfully Register Message
     if (user.email) {
@@ -122,6 +128,7 @@ const Register = () => {
                                 {/* Social Media */}
                                 <Box sx={{ width: { xs: 1, md: '80%' }, textAlign: 'center', mt: { xs: 0, md: 3 } }}>
                                     <Button
+                                        onClick={handleLoginWithGoogle}
                                         sx={{ color: '#F44A4A' }}
                                         startIcon={<GoogleIcon />}
                                     ></Button>

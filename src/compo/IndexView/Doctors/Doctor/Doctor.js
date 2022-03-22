@@ -12,7 +12,7 @@ const Doctor = ({ doctor }) => {
     }
 
     return (
-        <Grid item xs={12} sm={12} md={4}>
+        <Grid data-aos="zoom-in-up" data-aos-duration="1000" item xs={12} sm={12} md={4}>
             <Box>
                 <img style={{ height: '100%', width: '100%' }} src={image} alt="" />
             </Box>
